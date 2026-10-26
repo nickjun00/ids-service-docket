@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#383669" />
+    <title>Sign in · IDS Admin</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+    <script src="assets/js/app.js?v=5" defer></script>
+  </head>
+  <body>
+    <main class="login">
+      <section class="card" aria-label="Administrator login">
+        <a class="brand" href="./" aria-label="IDS Admin home">
+          <img class="brand-logo" src="assets/images/logo.png" alt="IDS Admin" />
+        </a>
+
+        <form id="login-form">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="admin@megascreen.com.my" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="none" required aria-describedby="email-hint email-feedback" />
+          <p id="email-hint" class="demo-hint">For client testing, sign in with <strong>admin@megascreen.com.my</strong>, then select <strong>Get OTP</strong>.</p>
+          <p id="email-feedback" class="feedback" aria-live="polite"></p>
+          <button type="submit">
+            Get OTP
+          </button>
+          <p class="note">Demo preview for client testing.</p>
+          <footer>IDS Admin <span aria-hidden="true">·</span> Administration portal</footer>
+        </form>
+        <form id="otp-form" hidden aria-labelledby="verify-heading">
+          <h1 id="verify-heading">Verify</h1>
+          <p class="verify-description">Enter the six-digit code for<br /><strong id="otp-email"></strong></p>
+          <p id="otp-hint" class="demo-hint">Enter <strong>888888</strong> to continue. This is a demo code; no email is sent.</p>
+          <div class="otp-fields" role="group" aria-label="Six-digit verification code" aria-describedby="otp-hint">
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]" aria-label="Digit 1" aria-describedby="otp-hint otp-feedback" required />
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]" aria-label="Digit 2" required />
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]" aria-label="Digit 3" required />
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]" aria-label="Digit 4" required />
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]" aria-label="Digit 5" required />
+            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]" aria-label="Digit 6" required />
+          </div>
+          <p id="otp-feedback" class="feedback" aria-live="polite"></p>
+          <button id="verify-button" type="submit" hidden>Verify</button>
+          <p class="resend-note">Didn't receive a code? <button class="text-button" id="resend-otp" type="button">Request again</button></p>
+          <button class="text-button back-button" id="change-email" type="button">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6" /></svg>
+            Back
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

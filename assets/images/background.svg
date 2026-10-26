@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+  <path fill="#383669" d="M0 0h1440v1000H0z"/>
+  <g stroke="#fff" stroke-opacity=".035" stroke-width="1">
+    <path fill="#504d86" fill-opacity=".45" d="M0 0h290L0 370z"/>
+    <path fill="#646099" fill-opacity=".24" d="m290 0 180 390L0 370z"/>
+    <path fill="#7773aa" fill-opacity=".16" d="M290 0h720L470 390z"/>
+    <path fill="#29274f" fill-opacity=".22" d="m1010 0 65 375-605 15z"/>
+    <path fill="#302e5c" fill-opacity=".3" d="M1010 0h430v200l-365 175z"/>
+    <path fill="#646099" fill-opacity=".13" d="m0 370 470 20L180 720 0 640z"/>
+    <path fill="#2e2c57" fill-opacity=".18" d="m470 390 605-15-190 375-705-30z"/>
+    <path fill="#625e95" fill-opacity=".12" d="m1075 375 365-175v410l-555 140z"/>
+    <path fill="#252348" fill-opacity=".18" d="m1440 610-555 140 235 250h320z"/>
+    <path fill="#6a669e" fill-opacity=".16" d="m0 640 180 80 380 280H0z"/>
+    <path fill="#302e59" fill-opacity=".14" d="m180 720 705 30-325 250z"/>
+    <path fill="#29274f" fill-opacity=".3" d="m885 750 235 250H560z"/>
+  </g>
+</svg>

@@ -1,0 +1,94 @@
+SERVICE DOCKET - REQUIREMENTS
+Recorded: 26 October 2026
+
+CURRENT WORK SCOPE
+The product features below remain requirements until the user requests their
+implementation. The user has now authorized changing the existing demo admin
+email to admin@megascreen.com.my and adding login hints for client testing.
+Keep changes within the latest user-authorized scope.
+Before any build or code change, read ai-rules.txt and this file.
+
+PRODUCT PURPOSE
+Create a service docket system with a website, an iOS app, and an Android app.
+A person visiting a service location can record the services performed using
+a form/checklist, capture an electronic signature, and submit the docket for
+an administrator to check on the website.
+
+REQUIREMENTS FROM THIS DISCUSSION
+
+1. Platforms
+   - Website with an administrator dashboard.
+   - iOS app.
+   - Android app.
+
+2. Service docket workflow
+   - Record work performed during a visit to a location.
+   - Record multiple services/tasks within a docket using a checklist.
+   - Use a form experience similar to Google Forms, with an e-signature.
+   - Support image and video uploads.
+   - Submit the completed docket so it is available on the admin website.
+   - Let the administrator view and check submitted dockets.
+
+3. Administrator website
+   - Provide an admin dashboard.
+   - Allow the administrator to add, edit, and delete form types/templates.
+   - Make submitted service dockets available for review.
+
+4. Project groups and updates
+   - Provide a Facebook-style group for each project.
+   - Let project members post work/progress updates in their project group.
+   - Show updates in a project group feed so members can follow activity.
+
+5. Chat
+   - Support private one-to-one chat between users.
+   - Support group chat for team/project discussions.
+
+6. Phone storage and cloud archiving
+   - Provide two configurable ways to manage the app's storage on each phone:
+     a. Age-based retention: keep items locally for a configured period,
+        such as 30 days, then upload older items to the cloud.
+     b. Storage limit: let the user choose a local storage allowance,
+        such as 10 GB, 50 GB, or a custom amount.
+   - Cover locally stored images, videos, and chat content.
+   - When the storage allowance is exceeded, use FIFO (first in, first out):
+     select the oldest local items/chats first for cloud archiving, based
+     on their original write time.
+   - Free the archived items' local storage after their cloud uploads have
+     succeeded. Do not remove the local content before a successful upload.
+   - Upload queued archive content only when Wi-Fi is available.
+   - Without Wi-Fi, keep the content on the phone and leave uploads pending
+     until Wi-Fi becomes available. Local storage/age limits may therefore
+     be temporarily exceeded while uploads are waiting.
+   - Record the original write/creation timestamp for each item or message.
+   - Separately record the actual successful cloud upload timestamp.
+   - Preserve the original write time when content is uploaded or archived.
+
+TECHNOLOGY AND HOSTING PREFERENCES
+These are preferences/options, not a finalized architecture.
+   - Prefer Flutter for development.
+   - Prefer a free website/hosting option where possible.
+   - Consider Cloudflare or Firebase for website deployment.
+   - Cloudinary can be used for image and video uploads/storage.
+   - Node.js is an acceptable backend option if needed to keep implementation
+     manageable.
+   - Final hosting, backend, and service plans are still to be decided;
+     free-tier availability and limits have not been checked.
+
+EARLIER IDEAS ALREADY IN note.txt
+Preserved here for reference; not reconfirmed in this discussion.
+   - Dashboard chart for service dockets.
+   - Account management.
+   - A list of service dockets.
+   - An activity feed showing work performed, with feed deletion.
+   - An employee app for uploading what employees did that day.
+
+DETAILS TO AGREE LATER
+   - Initial form types and their fields/checklist items.
+   - Who signs the docket and how signatures are captured.
+   - What information and charts the admin dashboard should show.
+   - User roles and access permissions.
+   - Who can create project groups and manage their membership.
+   - Whether age-based retention and the storage limit can be enabled together.
+   - Default storage settings and how archived content is viewed/retrieved.
+   - Whether the earlier ideas above belong in the initial release.
+   - Final technology and hosting choices.

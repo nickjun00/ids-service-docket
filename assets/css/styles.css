@@ -1,0 +1,41 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #383669;
+  background: #383669;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: url("../images/background.svg") center / cover fixed; }
+.login { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
+.card { width: 100%; max-width: 486px; padding: 38px 43px 28px; background: white; border-radius: 32px; }
+.brand { display: block; width: fit-content; max-width: 100%; margin: 0 auto 24px; text-decoration: none; }
+.brand-logo { display: block; width: 160px; max-width: 100%; height: auto; }
+label { display: block; margin-bottom: 11px; font-size: 16px; font-weight: 450; letter-spacing: .2px; }
+input { width: 100%; min-height: 58px; border: 1px solid #dcdbe8; border-radius: 8px; padding: 16px; color: #383669; background: #f0eff7; font: inherit; font-size: 14px; transition: border-color .15s, box-shadow .15s; }
+input::placeholder { color: #8b9bb1; }
+input:focus { outline: none; border-color: #383669; box-shadow: 0 0 0 3px #38366926; }
+input[aria-invalid="true"] { border-color: #c64242; }
+.feedback { margin: 8px 0 22px; color: #b53636; font-size: 12px; line-height: 1.6; }
+.feedback:empty { margin-top: 0; }
+.feedback.success { color: #526079; }
+.demo-hint { margin: 12px 0 16px; padding: 12px 14px; border-radius: 8px; background: #f0eff7; color: #526079; font-size: 12px; line-height: 1.6; }
+.demo-hint strong { color: #383669; font-weight: 600; overflow-wrap: anywhere; }
+button { display: flex; width: 100%; min-height: 60px; align-items: center; justify-content: center; border: 0; border-radius: 8px; background: #383669; color: #ffffff; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; transition: background .15s; }
+button:hover { background: #45427e; }
+button:active { background: #2d2b55; }
+button:focus-visible, .brand:focus-visible { outline: 3px solid #7773aa; outline-offset: 4px; }
+.note { margin: 23px 0 0; text-align: center; color: #75839a; font-size: 12px; line-height: 1.6; }
+footer { margin-top: 29px; text-align: center; color: #75839a; font-size: 11px; line-height: 1.6; }
+footer span { margin: 0 6px; }
+h1 { margin: 0 0 12px; text-align: center; font-size: 28px; font-weight: 600; }
+.verify-description { margin: 0 0 26px; text-align: center; color: #75839a; font-size: 14px; line-height: 1.8; }
+.verify-description strong { color: #383669; font-weight: 500; overflow-wrap: anywhere; }
+.otp-fields { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.otp-digit { min-width: 0; height: 58px; padding: 6px 0; text-align: center; font-size: 24px; background: white; }
+.resend-note { margin: 24px 0 14px; text-align: center; font-size: 13px; color: #75839a; line-height: 1.8; }
+.text-button { display: inline; width: auto; min-height: 0; padding: 0; border-radius: 2px; background: transparent; color: #383669; font-size: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.text-button:hover, .text-button:active { background: transparent; color: #45427e; }
+#otp-form .back-button { display: flex; width: 100%; align-items: center; justify-content: center; gap: 6px; margin: 0; padding: 8px 12px; font-size: 13px; text-decoration: none; }
+@media (max-width: 480px) { .card { padding: 30px 24px 25px; border-radius: 26px; } .login { padding: 28px 20px; } }

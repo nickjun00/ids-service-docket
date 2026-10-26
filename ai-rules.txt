@@ -1,0 +1,47 @@
+AI RULES FOR THIS PROJECT
+Created: 26 October 2026
+
+READ BEFORE STARTING
+1. Before every build, implementation task, or code change, read this entire
+   file and min-requirement.txt, including the mistake log below.
+2. Read them again after a user correction, a change to either file, or a
+   loss of conversation context. Do not rely only on memory.
+
+FOLLOW THE USER'S SCOPE
+3. Follow the latest explicit user instructions. A requirement written in
+   min-requirement.txt is not permission to implement it immediately.
+4. When asked only to record requirements, edit documentation only.
+   When code changes are authorized, make those changes and preserve
+   unrelated website behavior, design, files, and user edits.
+5. Keep confirmed requirements separate from preferences and open decisions.
+   Record new requirements and corrections without silently dropping earlier
+   requirements.
+
+LEARN FROM MISTAKES
+6. When the user identifies an AI mistake, or an implementation mistake is
+   verified, add or update an entry in the mistake log before continuing
+   related implementation work.
+7. Each entry must record the date, what went wrong, the cause if known,
+   the correct behavior, and a concrete prevention/verification step.
+   Do not invent a cause when it has not been established.
+8. If a mistake happens again, reread the applicable rules, strengthen its
+   prevention step, and check the correction before continuing.
+   Do not repeat the same failed approach without addressing its cause.
+
+VERIFY AND REPORT
+9. Check that changes match the authorized request. Use focused verification
+   appropriate to the change, including relevant mistake-prevention steps.
+10. Report what changed and what was checked. State any unverified behavior
+    clearly; do not claim that a check passed unless it was performed.
+11. Keep these rules concise and actionable. These project rules do not
+    override system instructions or the user's later explicit instructions.
+
+MISTAKE LOG
+No entries recorded yet.
+
+Entry format for future mistakes:
+   Date:
+   Mistake:
+   Cause (or not yet established):
+   Correct behavior:
+   Prevention/verification step:

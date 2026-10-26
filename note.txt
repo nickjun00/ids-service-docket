@@ -1,0 +1,8 @@
+1. Do dashboard that have a chart for service dockets
+2. Do manage accounts
+3. A list of service dockets
+4. Feed show what they do, can delete their feed
+
+Do app that for employees
+1. Upload what they do today
+2. Group chat feature 
