@@ -2,10 +2,18 @@ SERVICE DOCKET - REQUIREMENTS
 Recorded: 26 October 2026
 
 CURRENT WORK SCOPE
+The user has now authorized creating an initial Flutter app in mobile_app/
+for Android and iOS, including its starter screen and setup documentation.
+The mobile app is named IDS and reuses the existing IDS logo on its screen
+and Android/iOS launcher icons. The latest authorized work is to use iOS
+17.0 consistently, start the app with an email login and Send OTP flow, ask
+for camera and location permissions during login, and investigate the iOS
+PhaseScriptExecution build error. The user confirmed using the website's
+demo OTP code 888888 for now, with no real email delivery.
 The product features below remain requirements until the user requests their
-implementation. The user has now authorized changing the existing demo admin
-email to admin@megascreen.com.my and adding login hints for client testing.
-Keep changes within the latest user-authorized scope.
+implementation. Preserve the existing website code and design. The previously
+authorized demo admin email admin@megascreen.com.my and login hints for client
+testing remain in place. Keep changes within the latest user-authorized scope.
 Before any build or code change, read ai-rules.txt and this file.
 
 PRODUCT PURPOSE
@@ -19,6 +27,8 @@ REQUIREMENTS FROM THIS DISCUSSION
 1. Platforms
    - Website with an administrator dashboard.
    - iOS app.
+   - Always use iOS 17.0 as the mobile app's minimum deployment target.
+     Keep project, Runner, RunnerTests, and framework settings consistent.
    - Android app.
 
 2. Service docket workflow
@@ -63,9 +73,36 @@ REQUIREMENTS FROM THIS DISCUSSION
    - Separately record the actual successful cloud upload timestamp.
    - Preserve the original write time when content is uploaded or archived.
 
+7. Mobile app branding
+   - Use IDS as the mobile app's display name on Android and iOS.
+   - Reuse the existing IDS logo for the app screen and launcher icons.
+   - Show an IDS branded native splash screen while the app launches.
+   - Hide the Flutter DEBUG banner in the app.
+
+8. Mobile app login
+   - Start with a branded login page containing an email field and Send OTP.
+   - Before OTP verification, check non-admin email addresses against the
+     `accounts` collection's `email` field in the IDS Firebase project.
+     The admin email admin@megascreen.com.my bypasses this database lookup.
+   - Match the website's client-testing demo: code 888888, with a clear
+     on-screen note that no email is sent.
+   - Request camera access and location access immediately when the app opens,
+     show one branded loading screen while requesting them, then show the
+     login page. Respect denials and provide a way to retry or open app
+     settings.
+   - Let the user verify the code and sign out of the demo session.
+   - Verify automatically and open the home page when all six OTP digits
+     are entered correctly.
+   - Real email delivery and production authentication remain future work.
+
+9. Mobile app architecture
+   - Organize the Flutter app using MVC, with separate models, services,
+     controllers, views, bindings, and routes, following the structure of the
+     user's MCRE app.
+
 TECHNOLOGY AND HOSTING PREFERENCES
 These are preferences/options, not a finalized architecture.
-   - Prefer Flutter for development.
+   - Flutter is selected for the initial Android and iOS app.
    - Prefer a free website/hosting option where possible.
    - Consider Cloudflare or Firebase for website deployment.
    - Cloudinary can be used for image and video uploads/storage.

@@ -37,7 +37,18 @@ VERIFY AND REPORT
     override system instructions or the user's later explicit instructions.
 
 MISTAKE LOG
-No entries recorded yet.
+Date: 26 October 2026
+Mistake: The generated iOS project retained 13.0 deployment targets. The
+   user's required minimum is iOS 17.0.
+Cause: Flutter's template defaults were retained without checking every
+   project and target configuration before handing off the scaffold.
+Correct behavior: Use iOS 17.0 consistently for Debug, Profile, and Release,
+   including RunnerTests and the Flutter app framework metadata. Preserve
+   the user's signing team and other unrelated Xcode settings.
+Prevention/verification step: After generating or editing iOS configuration,
+   inspect every IPHONEOS_DEPLOYMENT_TARGET and MinimumOSVersion in the app;
+   verify all resolve to 17.0 before building. Do not identify the cause of
+   a PhaseScriptExecution failure without its underlying error message.
 
 Entry format for future mistakes:
    Date:
@@ -45,3 +56,61 @@ Entry format for future mistakes:
    Cause (or not yet established):
    Correct behavior:
    Prevention/verification step:
+
+Date: 26 October 2026
+Mistake: Replaced the website's email OTP login with Firebase
+   email/password sign-in while wiring up Firestore, despite the user's
+   preference to keep their OTP flow.
+Cause: Interpreted "don't care about the login process" as permission to
+   change the login method instead of treating it as a constraint to avoid
+   blocking the Firebase database integration.
+Correct behavior: Preserve the user's email OTP flow. Connect its verified
+   identity to Firebase authorization through the user's OTP backend or a
+   trusted Firebase custom-token exchange.
+Prevention/verification step: Before changing authentication UI or behavior,
+   check the user's latest direct preference about the login method and keep
+   it unless the user explicitly requests a replacement.
+
+Date: 26 October 2026
+Mistake: After switching the account page to temporary unauthenticated
+   Firestore rules, its permission-denied message still blamed the OTP
+   integration, and other Firebase failures were reduced to generic text.
+Cause: The error handler was not updated alongside the change to public
+   account-collection rules.
+Correct behavior: Show an accurate Firebase error code and message so the
+   user can tell whether a write failed due to rules, connectivity, or setup.
+Prevention/verification step: When changing Firebase authorization rules,
+   inspect each account-page error branch and confirm it matches the active
+   rules model; retain the Firebase error code in user-visible diagnostics.
+
+Date: 26 October 2026
+Mistake: Added an extra Firestore read after the successful account write,
+   delaying the success response without improving write confirmation.
+Cause: Added a read-back check as a diagnostic even though the addDoc promise
+   already waits for the server to acknowledge the write.
+Correct behavior: Treat successful completion of the Firestore write promise
+   as confirmation and avoid a redundant follow-up read in the normal path.
+Prevention/verification step: Before adding a confirmation query after a
+   database write, verify whether the write API already resolves on server
+   acknowledgment; remove redundant network round trips.
+
+Date: 26 October 2026
+Mistake: Cleanup removed .dart_tool/package_config.json after verification,
+   causing Xcode's Flutter script to fail with PhaseScriptExecution errors.
+Cause: Required generated dependency configuration was treated as disposable
+   build output after using a temporary writable SDK for verification.
+Correct behavior: Leave usable Flutter dependency and Xcode configuration
+   in place, pointing to the user's installed SDK and package cache.
+Prevention/verification step: Do not delete .dart_tool/package_config.json,
+   Generated.xcconfig, or required generated registrants during cleanup.
+   Before handing off, verify the package config exists, its package roots
+   resolve, and Xcode configuration references the installed SDK rather
+   than a temporary copy. Remove only temporary build outputs and SDK copies.
+
+Date: 26 October 2026
+Mistake: Two multiline OTP validation branches omitted braces, causing the
+   project's Flutter analyzer check to fail.
+Cause: The new validator did not follow curly_braces_in_flow_control_structures.
+Correct behavior: Use braced blocks for these validation branches.
+Prevention/verification step: Run the project analyzer after formatting new
+   Dart code and resolve its flow-control lint findings before handoff.
