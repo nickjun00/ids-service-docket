@@ -114,3 +114,12 @@ Cause: The new validator did not follow curly_braces_in_flow_control_structures.
 Correct behavior: Use braced blocks for these validation branches.
 Prevention/verification step: Run the project analyzer after formatting new
    Dart code and resolve its flow-control lint findings before handoff.
+
+Date: 27 October 2026
+Mistake: Two nested .DS_Store files were included in the GitHub deployment
+   commit after I said I had excluded macOS metadata files.
+Cause: The staging cleanup named only the root and former asset paths, not
+   the new nested admin_website paths.
+Correct behavior: Keep .DS_Store files out of source commits.
+Prevention/verification step: Ignore .DS_Store at the repository level and
+   review every staged filename for .DS_Store before committing.
